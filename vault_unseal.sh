@@ -2,4 +2,4 @@
 #
 # Just unseals the Vault
 #
-vault operator unseal $(gpg --decrypt ./secrets/unseal.pgp) 
+vault operator unseal $(gpg --decrypt ./secrets/unseal.gpg) 
