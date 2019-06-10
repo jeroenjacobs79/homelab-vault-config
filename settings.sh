@@ -45,6 +45,9 @@ K8S_API_URL="https://104.199.102.187"
 K8S_VAULT_SA_NAME="vault-auth"
 K8S_VAULT_SA_NAMESPACE="kube-security"
 
+# AppRole settings
+APPROLE_VAULT_PATH="approle"
+
 # OpenVPN TLS settings
 OVPN_VAULT_PATH="pki-ovpn"
 OVPN_ORGANIZATION="Head In Cloud BVBA"
