@@ -86,13 +86,13 @@ I've set up a simple PKI infrastructure to generate TLS keypairs for my OpenVPN 
 
   *Usage*: `./ovpn_create_server_key.sh <name>`
 
-  *Description*: This script generates the server keypair with the specified common name. Generating the OpenVPN config is not autmated yet, so you need to copy/paste the output as necessary.
+  *Description*: This script generates the server keypair with the specified common name. Generating the OpenVPN config is not automated yet, so you need to copy/paste the output as necessary.
 
 * `ovpn_create_sclient_key.sh`
 
   *Usage*: `./ovpn_create_client_key.sh <name>`
 
-  *Description*: This script generates a client keypair with the specified common name. Generating the OpenVPN config is not autmated yet, so you need to copy/paste the output as necessary.
+  *Description*: This script generates a client keypair with the specified common name. Generating the OpenVPN config is not automated yet, so you need to copy/paste the output as necessary.
 
 #### Kubernetes authentication
 
