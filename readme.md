@@ -18,42 +18,42 @@ The scripts in this repository assume you already have an initialized and unseal
 
 ### Essential wrapper scripts and directories
 
-`vault_activate.sh` 
+* `vault_activate.sh` 
 
-Usage: `source ./vault_activate.sh`
+  *Usage:* `source ./vault_activate.sh`
 
-Description: Sets the `VAULT_TOKEN`, `VAULT_ADDR` and `VAULT_CACERT` environment variables, so they point to my Vault instance.
-  
-
-`vault_deactivate.sh`
-
-Usage: `source ./vault_deactivate.sh`
-
-Description: Unsets the `VAULT_TOKEN`, `VAULT_ADDR` and `VAULT_CACERT` environment variables.
+  *Description:* Sets the `VAULT_TOKEN`, `VAULT_ADDR` and `VAULT_CACERT` environment variables, so they point to my Vault instance.
 
 
-`vault_unseal.sh`
+* `vault_deactivate.sh`
 
-Usage: `./vault_unseal.sh`
+  *Usage:* `source ./vault_deactivate.sh`
 
-Description: Simple wrapper script to unseal my Vault instance.
-
-
-`secrets/`
-
-This folder contains the GnuPG encrypted version of my access token and unseal key. They are referenced in the `vault_activate.sh` and `vault_unseal.sh` scripts.
+  *Description:* Unsets the `VAULT_TOKEN`, `VAULT_ADDR` and `VAULT_CACERT` environment variables.
 
 
-`ca/`
+* `vault_unseal.sh`
 
-This folder contains the root cert that is used to communicate with the Vault instance. 
+  *Usage:* `./vault_unseal.sh`
+
+  *Description:* Simple wrapper script to unseal my Vault instance.
+
+
+* `secrets/`
+
+  *Description:* This folder contains the GnuPG encrypted version of my access token and unseal key. They are referenced in the `vault_activate.sh` and `vault_unseal.sh` scripts.
+
+
+* `ca/`
+
+  *Description:* This folder contains the root cert that is used to communicate with the Vault instance. 
 
 
 ### Settings file
 
-`settings.sh`
+* `settings.sh`
 
-This file is not called directly, but contains settings used by the various configuration scripts listed below
+  *Description:* This file is not called directly, but contains settings used by the various configuration scripts listed below
 
 ### Configuration scripts
 
