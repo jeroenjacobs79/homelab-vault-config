@@ -1,5 +1,5 @@
 
-# Web PKI settings. I'm creating both RSA and DCSA keys with it.
+# Web PKI settings. I'm creating both RSA and ECDSA keys with it.
 
 WEB_RSA_VAULT_PATH="pki-web-intern-rsa"
 WEB_RSA_MAX_TTL="87600h"
