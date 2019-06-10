@@ -57,5 +57,51 @@ The scripts in this repository assume you already have an initialized and unseal
 
 ### Configuration scripts
 
-(to be continued)
+#### Vault policies
 
+* `vault_install_policies.sh`
+  
+  *Usage:* `./vault_install_policies.sh`
+
+  *Description*: Deploys all the policies in the ./policies folder to the Vault instance. Policy name is the filename minus extension.
+
+#### OpenVPN PKI
+
+I've set up a simple PKI infrastructure to generate TLS keypairs for my OpenVPN setup. Most of the settings are read from the `setting.sh` file, look for the OVPN_* variables.
+
+
+* `ovpn_setup_pki.sh`
+
+  *Usage*: `./ovpn_setup_pki.sh`
+
+  *Description*: This script generates a root RSA keypair and mounts it at the configured path. You need to run this script only once.
+
+* `ovpn_setup_roles.sh`
+
+  *Usage*: `./ovpn_setup_roles.sh`
+
+  *Description*: This script generates the roles that will be used to generate server and client keypairs. You can run this script as many times as you want.
+
+* `ovpn_create_server_key.sh`
+
+  *Usage*: `./ovpn_create_server_key.sh <name>`
+
+  *Description*: This script generates the server keypair with the specified common name. Generating the OpenVPN config is not autmated yet, so you need to copy/paste the output as necessary.
+
+* `ovpn_create_sclient_key.sh`
+
+  *Usage*: `./ovpn_create_client_key.sh <name>`
+
+  *Description*: This script generates a client keypair with the specified common name. Generating the OpenVPN config is not autmated yet, so you need to copy/paste the output as necessary.
+
+#### Kubernetes authentication
+
+TO-DO
+
+#### Internal web PKI
+
+TO-DO
+
+#### AppRole authentication
+
+TO-DO
