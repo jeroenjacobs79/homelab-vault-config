@@ -23,6 +23,7 @@ The scripts in this repository assume you already have an initialized and unseal
 Usage: `source ./vault_activate.sh`
 
 Description: Sets the `VAULT_TOKEN`, `VAULT_ADDR` and `VAULT_CACERT` environment variables, so they point to my Vault instance.
+  
 
 `vault_deactivate.sh`
 
@@ -30,21 +31,23 @@ Usage: `source ./vault_deactivate.sh`
 
 Description: Unsets the `VAULT_TOKEN`, `VAULT_ADDR` and `VAULT_CACERT` environment variables.
 
+
 `vault_unseal.sh`
 
 Usage: `./vault_unseal.sh`
 
 Description: Simple wrapper script to unseal my Vault instance.
 
+
 `secrets/`
 
 This folder contains the GnuPG encrypted version of my access token and unseal key. They are referenced in the `vault_activate.sh` and `vault_unseal.sh` scripts.
+
 
 `ca/`
 
 This folder contains the root cert that is used to communicate with the Vault instance. 
 
-*These scripts are quite simpel, and I recommend you take a look at them to see how they work.*
 
 ### Settings file
 
