@@ -94,14 +94,48 @@ I've set up a simple PKI infrastructure to generate TLS keypairs for my OpenVPN 
 
   *Description*: This script generates a client keypair with the specified common name. Generating the OpenVPN config is not automated yet, so you need to copy/paste the output as necessary.
 
-#### Kubernetes authentication
-
-TO-DO
-
 #### Internal web PKI
 
 TO-DO
 
+#### Kubernetes authentication
+
+These scripts setup Kubernetes authentication with Vault. A service account should already be created in Kubernetes that has the necessary permissions to validate JWT tokens. If you have not yet configured this necessary service account, you can customize and apply the provided `extra/k8s_vault_user.yaml` file.
+
+Make sure the K8S_* variables in `settings.sh` are correct.
+
+
+**These scripts run `kubectl` to retrieve the necessary ca certificate and the service account's JWT token. Make sure `kubectl` is configured so it connects with the correct Kubernetes cluster!**
+
+
+
+* `k8s_setup_auth.sh`
+
+  *Usage*: `./k8s_setup_auth.sh`
+
+  *Description*: Retrieves the JWT token of the service account that will perform JWT validation, and uses it to configure the Vault authentication backend
+
+* `k8s_setup_roles.sh`
+
+  *Usage*: `./k8s_setup_roles.sh`
+
+  *Description*: Used to configure Kubernetes service accounts within Vault and assign policies to them. At the moment, configures a demo-role that binds a Kubernetes service account to the `default` policy.
+
+
 #### AppRole authentication
 
-TO-DO
+Very simple scripts to enable the AppRole Auth backend and configure some roles. I used this for [cert-manager](https://github.com/jetstack/cert-manager), which does not support the Kubernetes auth backend (at least not when I last played with it, maybe this has changed now?).
+
+
+* `approles_setup_auth.sh`
+
+  *Usage*: `./approles_setup_auth.sh`
+
+  *Description*: Just enables the AppRoles auth-backend at the path defined in the APPROLE_VAULT_PATH variable in `settings.sh`
+
+* `approles_setup_roles.sh`
+
+  *Usage*: `./approles_setup_roles.sh`
+
+  *Description*: Used to configure Kubernetes service accounts within Vault and assign policies to them. At the moment, configures a demo-role that binds a Kubernetes service account to the `default` policy.
+
