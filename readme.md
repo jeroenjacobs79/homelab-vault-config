@@ -96,7 +96,34 @@ I've set up a simple PKI infrastructure to generate TLS keypairs for my OpenVPN 
 
 #### Internal web PKI
 
-TO-DO
+I'm also using the PKI secret backend to issue TLS keypairs for some of my internal services, in combination with [cert-manager](https://github.com/jetstack/cert-manager). While some parts are similar to the OpenVPN PKI backend described above, there are some important differences:
+
+- I'm defining both RSA and ECDSA intermediates
+- Intermediates are signed by a root CA key, which is kept offline.
+- I'm defining 2 different roles, one called `standard-server`, and one called `secure-server` which uses shorter TTL's. That last one I'll probably use one day to rotate the keypair of Vault itself.
+
+The first part of the setup will generate the internal intermediate CA keypairs for both RSA and ECDSA. A signing request will be saved to disk for both of them. The second part of the setup will import the signed certificates, and from then, TLS keypairs kan be issued.
+
+Please make note of all the WEB_* variables in `settings.sh`. This is probably the most complex secret backend for now.
+
+* `web_generate_intermediate.sh`
+
+  *Usage*: `web_generate_intermediate.sh`
+
+  *Description*: Generates an intermediate CA keypair and configures 2 PKI backends (one for RSA, and one for ECDSA). Signing requests will be generated in the current folder, and will be called `ecdsa_vault_intermediate_ca.csr` and `rsa_vault_intermediate_ca.csr`.
+
+* `web_complete_intermediate.sh`
+
+  *Usage*: `web_complete_intermediate.sh`
+
+  *Description*: Before you continue, make sure you have processed the CSR file generated in the previous script and generated the certificates by your offline root CA key. You should have saved the resulting certificates as `ecdsa_vault_intermediate_ca.pem` and `rsa_vault_intermediate_ca.pem`. Once you verified all of this, you should run this script to import the certificates into Vault.
+
+* `web_setup_roles.sh`
+
+  *Usage*: `web_setup_roles.sh`
+
+  *Description*: This script will configure 2 roles for each issuer, one called `standard-server` with a relatively long TTL, and one called `secure-server` with a relatively low TTL.
+ 
 
 #### Kubernetes authentication
 
