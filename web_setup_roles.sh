@@ -23,7 +23,7 @@ vault write ${WEB_EC_VAULT_PATH}/roles/${WEB_ROLE_STANDARD_NAME} \
 #
 # RSA
 #
-vault write pki-web-intern-rsa/roles/${WEB_ROLE_STANDARD_NAME} \
+vault write ${WEB_RSA_VAULT_PATH}/roles/${WEB_ROLE_STANDARD_NAME} \
     max_ttl="${WEB_ROLE_STANDARD_MAX_TTL}" \
     ttl="${WEB_ROLE_STANDARD_TTL}" \
     allowed_domains="${WEB_ROLE_STANDARD_ALLOWED_DOMAINS}" \
@@ -57,7 +57,7 @@ vault write ${WEB_EC_VAULT_PATH}/roles/${WEB_ROLE_SECURE_NAME} \
 #
 # RSA
 #
-vault write pki-web-intern-rsa/roles/${WEB_ROLE_SECURE_NAME} \
+vault write ${WEB_RSA_VAULT_PATH}/roles/${WEB_ROLE_SECURE_NAME} \
     max_ttl="${WEB_ROLE_SECURE_MAX_TTL}" \
     ttl="${WEB_ROLE_SECURE_TTL}" \
     allowed_domains="${WEB_ROLE_SECURE_ALLOWED_DOMAINS}" \
