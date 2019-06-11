@@ -98,7 +98,7 @@ I've set up a simple PKI infrastructure to generate TLS keypairs for my OpenVPN 
 
 I'm also using the PKI secret backend to issue TLS keypairs for some of my internal services, in combination with [cert-manager](https://github.com/jetstack/cert-manager). While some parts are similar to the OpenVPN PKI backend described above, there are some important differences:
 
-- I'm defining both RSA and ECDSA intermediates
+- I'm defining both RSA and ECDSA intermediates.
 - Intermediates are signed by a root CA key, which is kept offline.
 - I'm defining 2 different roles, one called `standard-server`, and one called `secure-server` which uses shorter TTL's. That last one I'll probably use one day to rotate the keypair of Vault itself.
 
