@@ -1,0 +1,14 @@
+{
+    "allow_user_certificates": true,
+    "allowed_users": "centos",
+    "key_bits": 2048,
+    "default_extensions": [
+      {
+        "permit-pty": "",
+        "permit-port-forwarding": ""
+      }
+    ],
+    "key_type": "ca",
+    "ttl": "48h",
+    "max_ttl": "72h"
+}
