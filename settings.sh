@@ -64,3 +64,16 @@ OVPN_MAX_SERVER_TTL="87600h"
 OVPN_SERVER_TTL="43800h"
 OVPN_MAX_CLIENT_TTL="87600h"
 OVPN_CLIENT_TTL="43800h"
+
+# SSH CA settings
+SSH_CLIENT_VAULT_PATH="ssh-client-signer"
+SSH_CLIENT_STANDARD="standard-user"
+SSH_CLIENT_PUBKEY="$HOME/.ssh/datacenter-hic-deploy.pub"
+SSH_CLIENT_PRIVKEY="$HOME/.ssh/datacenter-hic-deploy"
+SSH_CLIENT_PUBCERT="$HOME/.ssh/datacenter-hic-deploy-cert.pub"
+
+# AWS secrets settings
+AWS_VAULT_PATH="aws"
+AWS_REGION="eu-west-1"
+AWS_LEASE="8h"
+AWS_MAX_LEASE="24h"
