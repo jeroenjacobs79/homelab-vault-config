@@ -166,3 +166,11 @@ Very simple scripts to enable the AppRole Auth backend and configure some roles.
 
   *Description:* Used to configure Kubernetes service accounts within Vault and assign policies to them. At the moment, configures a demo-role that binds a Kubernetes service account to the `default` policy.
 
+#### AWS temporary credentials
+
+(documentation to be done)
+
+#### Signed SSH certificates
+
+(documentation to be done)
+
