@@ -77,3 +77,5 @@ AWS_VAULT_PATH="aws"
 AWS_REGION="eu-west-1"
 AWS_LEASE="8h"
 AWS_MAX_LEASE="24h"
+# used by the credential generation script
+AWS_PROFILE="default"
