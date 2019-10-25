@@ -167,6 +167,8 @@ Please make note of all the SSH_CLIENT_* variables in `settings.sh`
 Generate temporary credentials for AWS. Also has a wrapper script `aws_gen_admin_creds.sh` that generates a credentials file that can be dropped in your `~/.aws/` folder. I still need to document this.
 In the meantime, check the `aws_*` scripts and AWS_* variables in `settings.sh`.
 
+The setup script will trigger a `rotate` operation after the backend has been configured. This ensures only Vault knows the secret key!
+
 
 #### Kubernetes authentication
 
