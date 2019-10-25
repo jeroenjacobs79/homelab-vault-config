@@ -124,6 +124,49 @@ Please make note of all the WEB_* variables in `settings.sh`. This is probably t
 
   *Description:* This script will configure 2 roles for each issuer, one called `standard-server` with a relatively long TTL, and one called `secure-server` with a relatively low TTL.
  
+#### SSH authentication (SSH CA-based)
+(documentation is still a work in progress)
+
+Before using this SSH authentication type, please make sure you understand how SSH certificate-based user signing works. (eg: https://www.lorier.net/docs/ssh-ca.html)
+Please make note of all the SSH_CLIENT_* variables in `settings.sh`
+
+* `ssh_setup_client_signer.sh`
+
+  *Usage:* `./ssh_setup_client_signer.sh`
+
+  *Description:* This script will generate the CA that will be used for user-signing. The public key will be displayed. 
+
+* `ssh_get_client_ca.sh`
+
+  *Usage:* `./ssh_get_client_ca.sh`
+
+  *Description:* Will display the public key of the SSH user CA. You need to put the public key in a file on your servers, and make sure you reference it in your `sshd_config` file with the `TrustedUserCAKeys` parameter.
+
+* `ssh_setup_roles.sh`
+
+  *Usage:* `./ssh_setup_roles.sh`
+
+  *Description:* Sets up the role defined for the client-signer. Please look at the source and the contents of `extra/ssh_client_signer_role_centos.json` for more info. You probably need to adjust those to your own environment.
+
+* `ssh_sign_client_centos.sh`
+
+  *Usage:* `./ssh_sign_client_centos.sh`
+
+  *Description:* Will ask Vault to generate a client certificate and put it in the expected location. Please check the sourcecode and `settings.sh` file.
+
+* `ssh_connect_centos.sh`
+
+  *Usage:* `./sh_connect_centos.sh`
+
+  *Description:* Wrapper around the `ssh` command which fills in the expected commandline parameters for CA user-signing. Please check the sourcecode and `settings.sh` file.
+
+
+#### AWS secrets
+(documentation is still a work in progress)
+
+Generate temporary credentials for AWS. Also has a wrapper script `aws_gen_admin_creds.sh` that generates a credentials file that can be dropped in your `~/.aws/` folder. I still need to document this.
+In the meantime, check the `aws_*` scripts and AWS_* variables in `settings.sh`.
+
 
 #### Kubernetes authentication
 
