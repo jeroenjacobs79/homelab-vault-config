@@ -22,7 +22,7 @@ The scripts in this repository assume you already have an initialized and unseal
 
   *Usage:* `source ./vault_activate.sh`
 
-  *Description:* Sets the `VAULT_TOKEN`, `VAULT_ADDR` and `VAULT_CACERT` environment variables, so they point to my Vault instance.
+  *Description:* Sets the `VAULT_TOKEN`, `VAULT_ADDR` and `VAULT_CACERT` environment variables, so they point to my Vault instance. It uses the root token, which is stored encrypted in `secrets/token.gpg`, to generate an orphaned token with limited lifetime. This is safer than using the root token directly (which has an unlimited lifetime). By default, the newly created token has a TTL of 1 hour, with a max. TTL of 8 hours. You can use `vault token renew` to extend the 1h TTL (if the TTL has not yet expired ofcourse).
 
 
 * `vault_deactivate.sh`
