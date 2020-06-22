@@ -161,15 +161,6 @@ Please make note of all the SSH_CLIENT_* variables in `settings.sh`
   *Description:* Wrapper around the `ssh` command which fills in the expected commandline parameters for CA user-signing. Please check the sourcecode and `settings.sh` file.
 
 
-#### AWS secrets
-(documentation is still a work in progress)
-
-Generate temporary credentials for AWS. Also has a wrapper script `aws_gen_admin_creds.sh` that generates a credentials file that can be dropped in your `~/.aws/` folder. I still need to document this.
-In the meantime, check the `aws_*` scripts and AWS_* variables in `settings.sh`.
-
-The setup script will trigger a `rotate` operation after the backend has been configured. This ensures only Vault knows the secret key!
-
-
 #### Kubernetes authentication
 
 These scripts setup Kubernetes authentication with Vault. A service account should already be created in Kubernetes that has the necessary permissions to validate JWT tokens. If you have not yet configured this necessary service account, you can customize and apply the provided `extra/k8s_vault_user.yaml` file.
