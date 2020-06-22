@@ -213,6 +213,27 @@ Very simple scripts to enable the AppRole Auth backend and configure some roles.
 
 #### AWS temporary credentials
 
+The scripts set up the AWS secrets engine to generate temporary AWS admin credentials.
+
+* `aws_setup_auth.sh`
+
+  *Usage:* `./aws_setup_auth.sh`
+
+  *Description:* This scripts reads the file `secrets/aws_initial_creds.gpg` which contains an AWS credential with admin privileges. This file is encrypted with `gpg` for security reasons. The first line contains the access key, the second line contains the secret key. Once the secret-engine is configured, a rotation is performed and the initial AWS credential is no longer valid.
+
+* `aws_setup_roles.sh`
+
+  *Usage:* `./aws_setup_roles.sh`
+  
+  *Description:* Sets up a role for the AS secret engine, which will be used to generate admin credentials. The IAM policy for the role is located at `extra/aws_admin_user.json`.
+
+* `aws_gen_admin_creds.sh`
+
+  *Usage:* `./aws_gen_admin_creds.sh`
+
+  *Description*: Generates admin credentials in `.aws/config` format. By default the result is printed to standard output, but you can use redirection and do something like this `./aws_gen_admin_creds.sh > ~/.aws/config` (attention: this will destory the current config of your aws cli config file).
+
+
 (documentation to be done)
 
 #### Signed SSH certificates
