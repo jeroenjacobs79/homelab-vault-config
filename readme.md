@@ -234,8 +234,6 @@ The scripts set up the AWS secrets engine to generate temporary AWS admin creden
   *Description*: Generates admin credentials in `.aws/config` format. By default the result is printed to standard output, but you can use redirection and do something like this `./aws_gen_admin_creds.sh > ~/.aws/config` (attention: this will destory the current config of your aws cli config file).
 
 
-(documentation to be done)
-
 #### Signed SSH certificates
 
 (documentation to be done)
