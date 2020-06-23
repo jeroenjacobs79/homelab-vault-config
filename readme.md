@@ -29,7 +29,7 @@ The scripts in this repository assume you already have an initialized and unseal
 
   *Usage:* `source ./vault_deactivate.sh`
 
-  *Description:* Unsets the `VAULT_TOKEN`, `VAULT_ADDR` and `VAULT_CACERT` environment variables.
+  *Description:* Unsets the `VAULT_TOKEN`, `VAULT_ADDR` and `VAULT_CACERT` environment variables. Also revokes the orphan token we created in the activation step.
 
 
 * `vault_unseal.sh`
